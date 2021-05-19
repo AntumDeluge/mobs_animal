@@ -4,7 +4,7 @@ local S = mobs.intllib
 
 -- Cow by sirrobzeroone
 
-mobs:register_mob("mobs_animal:cow", {
+mobs:register_mob(":mobs:cow", {
 	type = "animal",
 	passive = false,
 	attack_type = "dogfight",
@@ -135,9 +135,8 @@ mobs:register_mob("mobs_animal:cow", {
 })
 
 
-if not mobs.custom_spawn_animal then
 mobs:spawn({
-	name = "mobs_animal:cow",
+	name = "mobs:cow",
 	nodes = {"default:dirt_with_grass", "ethereal:green_dirt"},
 	neighbors = {"group:grass"},
 	min_light = 14,
@@ -147,13 +146,22 @@ mobs:spawn({
 	max_height = 200,
 	day_toggle = true,
 })
+
+
+--mobs:register_egg(":mobs:cow", S("Cow"), "mobs_cow_inv.png")
+if core.global_exists("asm") then
+	asm.addEgg({
+		name = "cow",
+		title = S("Cow"),
+		inventory_image = "mobs_cow_inv.png",
+		spawn = "mobs:cow",
+		ingredients = "mobs:bucket_milk",
+	})
 end
+core.register_alias("mobs:cow", "spawneggs:cow")
 
 
-mobs:register_egg("mobs_animal:cow", S("Cow"), "mobs_cow_inv.png")
-
-
-mobs:alias_mob("mobs:cow", "mobs_animal:cow") -- compatibility
+mobs:alias_mob("mobs_animal:cow", "mobs:cow") -- compatibility
 
 
 -- bucket of milk
