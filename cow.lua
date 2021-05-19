@@ -140,8 +140,8 @@ mobs:spawn({
 	nodes = {"default:dirt_with_grass", "ethereal:green_dirt"},
 	neighbors = {"group:grass"},
 	min_light = 14,
-	interval = 60,
-	chance = 8000, -- 15000
+	interval = mobs_cow.spawn_interval,
+	chance = mobs_cow.spawn_chance,
 	min_height = 5,
 	max_height = 200,
 	day_toggle = true,
