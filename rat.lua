@@ -4,7 +4,7 @@ local S = mobs.intllib
 
 -- Rat by PilzAdam (B3D model by sirrobzeroone)
 
-mobs:register_mob("mobs_animal:rat", {
+mobs:register_mob(":mobs:rat", {
 stepheight = 0.6,
 	type = "animal",
 	passive = true,
@@ -31,7 +31,7 @@ stepheight = 0.6,
 	light_damage = 0,
 	fear_height = 2,
 	on_rightclick = function(self, clicker)
-		mobs:capture_mob(self, clicker, 50, 90, 0, true, "mobs_animal:rat")
+		mobs:capture_mob(self, clicker, 50, 90, 0, true, "mobs:rat")
 	end,
 --[[
 	do_custom = function(self, dtime)
@@ -69,7 +69,7 @@ end
 
 if not mobs.custom_spawn_animal then
 mobs:spawn({
-	name = "mobs_animal:rat",
+	name = "mobs:rat",
 	nodes = {"default:stone"},
 	min_light = 3,
 	max_light = 9,
@@ -81,10 +81,10 @@ mobs:spawn({
 end
 
 
-mobs:register_egg("mobs_animal:rat", S("Rat"), "mobs_rat_inv.png")
+mobs:register_egg("mobs:rat", S("Rat"), "mobs_rat_inv.png")
 
 
-mobs:alias_mob("mobs:rat", "mobs_animal:rat") -- compatibility
+mobs:alias_mob("mobs_animal:rat", "mobs:rat") -- compatibility
 
 
 -- cooked rat, yummy!
@@ -98,6 +98,6 @@ minetest.register_craftitem(":mobs:rat_cooked", {
 minetest.register_craft({
 	type = "cooking",
 	output = "mobs:rat_cooked",
-	recipe = "mobs_animal:rat",
+	recipe = "mobs:rat",
 	cooktime = 5
 })
