@@ -119,8 +119,8 @@ mobs:spawn({
 	nodes = spawn_on,
 	neighbors = {"group:grass"},
 	min_light = 14,
-	interval = 60,
-	chance = 10000, -- 22000
+	interval = mobs_kitten.spawn_interval,
+	chance = mobs_kitten.spawn_chance,
 	min_height = 5,
 	max_height = 50,
 	day_toggle = true,
