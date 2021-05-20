@@ -67,7 +67,6 @@ local function rat_spawn(self, pos)
 	self.health = 100
 end
 
-if not mobs.custom_spawn_animal then
 mobs:spawn({
 	name = "mobs:rat",
 	nodes = {"default:stone"},
@@ -78,10 +77,19 @@ mobs:spawn({
 	max_height = 0,
 --	on_spawn = rat_spawn,
 })
+
+
+--mobs:register_egg("mobs:rat", S("Rat"), "mobs_rat_inv.png")
+if core.global_exists("asm") then
+	asm.addEgg({
+		name = "rat",
+		title = S("Rat"),
+		inventory_image = "mobs_rat_inv.png",
+		spawn = "mobs:rat",
+		ingredients = "mobs:cheese",
+	})
 end
-
-
-mobs:register_egg("mobs:rat", S("Rat"), "mobs_rat_inv.png")
+core.register_alias("mobs:rat", "spawneggs:rat")
 
 
 mobs:alias_mob("mobs_animal:rat", "mobs:rat") -- compatibility
