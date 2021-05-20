@@ -4,7 +4,7 @@ local hairball = minetest.settings:get("mobs_hairball")
 
 -- Kitten by Jordach / BFD
 
-mobs:register_mob("mobs_animal:kitten", {
+mobs:register_mob(":mobs:kitten", {
 stepheight = 0.6,
 	type = "animal",
 specific_attack = {"mobs_animal:rat"},
@@ -115,9 +115,8 @@ if minetest.get_modpath("ethereal") then
 	spawn_on = "ethereal:grove_dirt"
 end
 
-if not mobs.custom_spawn_animal then
 mobs:spawn({
-	name = "mobs_animal:kitten",
+	name = "mobs:kitten",
 	nodes = {spawn_on},
 	neighbors = {"group:grass"},
 	min_light = 14,
@@ -127,13 +126,22 @@ mobs:spawn({
 	max_height = 50,
 	day_toggle = true,
 })
+
+
+--mobs:register_egg("mobs:kitten", S("Kitten"), "mobs_kitten_inv.png", 0)
+if core.global_exists("asm") then
+	asm.addEgg({
+		name = "Kitten",
+		title = S("Kitten"),
+		inventory_image = "mobs_kitten_inv.png",
+		spawn = "mobs:kitten",
+		ingredients = "mobs:hairball",
+	})
 end
+core.register_alias("mobs:kitten", "spawneggs:kitten")
 
 
-mobs:register_egg("mobs_animal:kitten", S("Kitten"), "mobs_kitten_inv.png", 0)
-
-
-mobs:alias_mob("mobs:kitten", "mobs_animal:kitten") -- compatibility
+mobs:alias_mob("mobs_animal:kitten", "mobs:kitten") -- compatibility
 
 
 local hairball_items = {
