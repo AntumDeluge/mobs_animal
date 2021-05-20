@@ -69,7 +69,7 @@ end
 
 mobs:spawn({
 	name = "mobs:rat",
-	nodes = {"default:stone"},
+	nodes = {"default:stone", "default:dirt_with_grass",},
 	min_light = 3,
 	max_light = 9,
 	interval = 60,
