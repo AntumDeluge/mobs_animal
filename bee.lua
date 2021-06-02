@@ -59,7 +59,18 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("mobs:bee", S("Bee"), "mobs_bee_inv.png")
+--mobs:register_egg("mobs:bee", S("Bee"), "mobs_bee_inv.png")
+if core.global_exists("asm") then
+	asm.addEgg({
+		name = "bee",
+		title = S("Bee"),
+		inventory_image = "mobs_bee_inv.png",
+		spawn = "mobs:bee",
+		ingredients = "mobs:honey",
+	})
+end
+core.register_alias("mobs:bee", "spawneggs:bee")
+
 
 -- compatibility
 mobs:alias_mob("mobs_animal:bee", "mobs:bee")
