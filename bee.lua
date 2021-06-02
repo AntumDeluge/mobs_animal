@@ -3,7 +3,7 @@ local S = mobs.intllib
 
 -- Bee by KrupnoPavel (.b3d model by sirrobzeroone)
 
-mobs:register_mob("mobs_animal:bee", {
+mobs:register_mob(":mobs:bee", {
 	type = "animal",
 	passive = true,
 	hp_min = 1,
@@ -39,7 +39,7 @@ mobs:register_mob("mobs_animal:bee", {
 		walk_end = 65,
 	},
 	on_rightclick = function(self, clicker)
-		mobs:capture_mob(self, clicker, 50, 90, 0, true, "mobs_animal:bee")
+		mobs:capture_mob(self, clicker, 50, 90, 0, true, "mobs:bee")
 	end,
 --	after_activate = function(self, staticdata, def, dtime)
 --		print ("------", self.name, dtime, self.health)
@@ -48,7 +48,7 @@ mobs:register_mob("mobs_animal:bee", {
 
 if not mobs.custom_spawn_animal then
 mobs:spawn({
-	name = "mobs_animal:bee",
+	name = "mobs:bee",
 	nodes = {"group:flower"},
 	min_light = 14,
 	interval = 60,
@@ -59,10 +59,10 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("mobs_animal:bee", S("Bee"), "mobs_bee_inv.png")
+mobs:register_egg("mobs:bee", S("Bee"), "mobs_bee_inv.png")
 
 -- compatibility
-mobs:alias_mob("mobs:bee", "mobs_animal:bee")
+mobs:alias_mob("mobs_animal:bee", "mobs:bee")
 
 -- honey
 minetest.register_craftitem(":mobs:honey", {
@@ -105,7 +105,7 @@ minetest.register_node(":mobs:beehive", {
 			minetest.set_node(pos, {name = "mobs:beehive", param2 = 1})
 
 			if math.random(1, 4) == 1 then
-				minetest.add_entity(pos, "mobs_animal:bee")
+				minetest.add_entity(pos, "mobs:bee")
 			end
 		end
 	end,
